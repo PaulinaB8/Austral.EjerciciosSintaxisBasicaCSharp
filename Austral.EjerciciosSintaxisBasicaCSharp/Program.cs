@@ -3,6 +3,8 @@
 // =====================
 
 // a) Declarar una variable con el nombre de una empresa y mostrarla por consola.
+using System.Diagnostics.CodeAnalysis;
+
 string nombreEmpresa = "Samsung";
 
 // b) Declarar una variable con la cantidad de empleados y mostrarla por consola.
@@ -161,13 +163,62 @@ else
 
 // a) Mostrar los primeros 10 números naturales usando un for.
 
+for (int i = 1; i<=10; i++)
+{
+    Console.WriteLine(i);
+}
+
 // b) Dado este array que representa las ventas de una empresa:
-//    int[] ventasMensuales = { 1000, 1200, 950, 1100 };
+int[] ventasMensuales = { 1000, 1200, 950, 1100 };
 //    Sumar las ventas mensuales con un foreach y mostrar el total por consola.
+
+int ventas = 0;
+foreach (int venta in ventasMensuales)
+{
+    ventas = ventas + venta;
+} ;
+Console.WriteLine(ventas);
+
 
 // c) Hacer una cuenta regresiva del 5 al 1 con while.
 
-// d) Simular un login: pedir usuario hasta que ingrese "admin" con do-while.
+int contador = 5;
+
+while (contador != 0)
+{
+    Console.WriteLine(contador);
+    contador--;
+}
+
+// d) Simular un login: pedir usuario hasta que ingrese "admin" con do-while. Crear variable de reintentos y al final de los intentos mostrar si pudo entrar o todos los intentos fueron fallidos
+
+var usuario = "";
+int contadorIntentos = 0;
+bool primerIngreso = true;
+
+do
+{
+    Console.WriteLine("Ingrese su nombre de usuario");
+    usuario = Console.ReadLine();
+    contadorIntentos++;
+    if (primerIngreso == true)
+    {
+        Console.WriteLine("Usuario incorrecto. Por favor vuelva a loguearse");
+        primerIngreso = false;
+    }
+} while (usuario != "admin" && contadorIntentos < 5);
+
+if(contadorIntentos  == 5)
+{
+    Console.WriteLine("No se pudo loguear como admin dentro de los 5 intentos");
+}
+else
+{
+
+    Console.WriteLine("Pudo loguearse como admin");
+}
+
+
 
 
 // =============
